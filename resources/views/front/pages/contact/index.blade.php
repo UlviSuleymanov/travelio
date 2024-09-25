@@ -17,7 +17,7 @@
                     <div class="row cs_gap_y_24">
                         <div class="col-lg-6">
                             <div class="cs_iconbox cs_style_1 cs_radius_15">
-                                <div class="cs_iconbox_icon cs_center cs_secondary_bg"><img src="assets/img/icons/email.svg" alt=""></div>
+                                <div class="cs_iconbox_icon cs_center cs_secondary_bg"><img src="{{asset('assets/img/icons/email.svg')}}" alt=""></div>
                                 <div class="cs_iconbox_right">
                                     <h3 class="cs_fs_23 cs_mb_1">Send us an email</h3>
                                     <p class="mb-0"><a href="mainto:info@traven.com">info@traven.com</a></p>
@@ -26,7 +26,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="cs_iconbox cs_style_1 cs_radius_15">
-                                <div class="cs_iconbox_icon cs_center cs_secondary_bg"><img src="assets/img/icons/phone.svg" alt=""></div>
+                                <div class="cs_iconbox_icon cs_center cs_secondary_bg"><img src="{{asset('assets/img/icons/phone.svg')}}" alt=""></div>
                                 <div class="cs_iconbox_right">
                                     <h3 class="cs_fs_23 cs_mb_1">Phone Number</h3>
                                     <p class="mb-0"><a href="tel:(+55)34099145">(+55) 340 99 145</a></p>

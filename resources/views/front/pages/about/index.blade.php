@@ -3,7 +3,7 @@
 
 @section("content")
 
-    <section class="cs_page_heading cs_center text-center cs_primary_bg cs_bg_filed" data-src="assets/img/about_page_header.webp">
+    <section class="cs_page_heading cs_center text-center cs_primary_bg cs_bg_filed" data-src="{{asset('assets/img/about_page_header.webp')}}">
         <div class="container">
             <h1 class="cs_fs_90 mb-0 cs_white_color">About Me</h1>
         </div>
@@ -14,7 +14,7 @@
         <div class="cs_height_150 cs_height_lg_80"></div>
         <div class="row align-items-center cs_gap_y_45">
             <div class="col-xl-5 col-lg-6">
-                <img src="assets/img/about_2.webp" alt="About">
+                <img src="{{asset('assets/img/about_2.webp')}}" alt="About">
             </div>
             <div class="col-xl-6 offset-xl-1 col-lg-6">
                 <h2 class="cs_fs_64 cs_mb_52 cs_mb_lg_25">Hi, I'm Diva Gonzales</h2>
@@ -26,7 +26,7 @@
     </section>
     <!-- End About Section -->
     <!-- Start Video Block -->
-    <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_start_video_block cs_video_open cs_center cs_bg_filed" data-src="assets/img/video_img_2.webp">
+    <a href="https://www.youtube.com/embed/rRid6GCJtgc" class="cs_start_video_block cs_video_open cs_center cs_bg_filed" data-src="{{asset('assets/img/video_img_2.webp')}}">
       <span class="cs_player_btn cs_accent_color">
         <span></span>
       </span>
@@ -46,25 +46,25 @@
         <ul class="cs_instagram_list cs_style_1 cs_type_3">
             <li>
                 <a href="#" class="cs_instagram">
-                    <img src="assets/img/instagram_5.webp" alt="Instagram">
+                    <img src="{{asset('assets/img/instagram_5.webp')}}" alt="Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </li>
             <li>
                 <a href="#" class="cs_instagram">
-                    <img src="assets/img/instagram_6.webp" alt="Instagram">
+                    <img src="{{asset('assets/img/instagram_6.webp')}}" alt="Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </li>
             <li>
                 <a href="#" class="cs_instagram">
-                    <img src="assets/img/instagram_7.webp" alt="Instagram">
+                    <img src="{{asset('assets/img/instagram_7.webp')}}" alt="Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </li>
             <li>
                 <a href="#" class="cs_instagram">
-                    <img src="assets/img/instagram_8.webp" alt="Instagram">
+                    <img src="{{asset('assets/img/instagram_8.webp')}}" alt="Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </li>
