@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
-            $table->integer("admin_id");
-            $table->integer("process_type_id");
-            $table->integer("process_id"); //entitinin idsi.
+            $table->unsignedBigInteger("admin_id");
+            $table->unsignedBigInteger("process_type_id");
+            $table->unsignedBigInteger("process_id"); //entitinin idsi.
             $table->timestamps();
 
             $table->foreign('admin_id')->references('id')
                 ->on('administration')->onDelete("cascade");
             $table->foreign('process_type_id')->references("id")
-                ->on("process_type")->onDelete('cascade');
+                ->on("process_types")->onDelete('cascade');
         });
     }
 

@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string("title",500);
             $table->string("image",1500);
-            $table->timestamp("created_at");
-            $table->timestamp("deleted_at");
             $table->tinyInteger("status")->default(1);
             $table->timestamps();
         });

@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string("name",500);
             $table->string("link",1500);
-            $table->timestamp("created_at");
             $table->tinyInteger("status")->default(1);
             $table->string("icon",500);
             $table->timestamps();

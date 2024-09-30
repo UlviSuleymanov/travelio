@@ -16,9 +16,6 @@ return new class extends Migration
             $table->string("full_name",500);
             $table->string("email",500);
             $table->string("password",500);
-            $table->timestamp("created_at");
-            $table->timestamp("updated_at");
-            $table->timestamp("deleted_at");
             $table->tinyInteger("email_verify");
             $table->timestamps();
         });

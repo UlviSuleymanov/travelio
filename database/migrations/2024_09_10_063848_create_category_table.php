@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string("keywords",1500);
             $table->tinyInteger("status")->default(1);
             $table->tinyInteger("selected")->default(0);
-            $table->timestamp("created_at");
-            $table->timestamp("deleted_at");
             $table->string("image",1500);
             $table->timestamps();
         });
