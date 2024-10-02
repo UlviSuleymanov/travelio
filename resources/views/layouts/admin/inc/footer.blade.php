@@ -1,59 +1,67 @@
-<!-- Start Footer Section -->
-<footer class="cs_footer cs_style_2 cs_color_1">
-    <div class="cs_footer_in cs_fs_23">
-        <div class="container-fluid">
-            <div class="cs_footer_row_1">
-                <div class="cs_footer_col">
-                    <div class="cs_widget">
-                        <div class="cs_text_widget">
-                            <img src="{{asset('assets/img/footer_logo_white.svg')}}" alt="">
-                            <p>Where your podcasting journey gets a power boost with  our online studio. Experience an all-in-one platform designed to craft  captivating audio content with ease!</p>
-                        </div>
-                        <div class="cs_social_links cs_style_1">
-                            <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
-                            <a href="#"><i class="fa-brands fa-x-twitter"></i>Twitter</a>
-                            <a href="#"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="cs_footer_col">
-                    <div class="cs_widget">
-                        <h2 class="cs_widget_title cs_fs_32">Explore</h2>
-                        <ul class="cs_footer_menu_2 cs_mp_0">
-                            <li><a href="#">HOME</a></li>
-                            <li><a href="#">ABOUT ME</a></li>
-                            <li><a href="#">EPISODES</a></li>
-                            <li><a href="#">PATREON</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="cs_footer_col">
-                    <div class="cs_widget">
-                        <h2 class="cs_widget_title cs_fs_32">Categories</h2>
-                        <div class="cs_category_list">
-                            <a href="#">Creative</a>
-                            <a href="#">Music</a>
-                            <a href="#">Wellness</a>
-                            <a href="#">Fashion</a>
-                            <a href="#">DIY</a>
-                            <a href="#">Lifestyle</a>
-                            <a href="#">Photography</a>
-                            <a href="#">Travel</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container-fluid">
-        <div class="cs_copyright text-center">All Rights Reserved Copyright © 2024 - Laralink</div>
-    </div>
-</footer>
-<!-- End Footer Section -->
-<!-- Script -->
-<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('assets/js/jquery.slick.min.js')}}"></script>
-<script src="{{asset('assets/js/isotope.pkg.min.js')}}"></script>
-<script src="{{asset('assets/js/main.js')}}"></script>
+</div>
+<!--   Core JS Files   -->
+<script src="{{asset('assets/js/core/jquery-3.7.1.min.js')}}"></script>
+<script src="{{asset('assets/js/core/popper.min.js')}}"></script>
+<script src="{{asset('assets/js/core/bootstrap.min.js')}}"></script>
+
+<!-- jQuery Scrollbar -->
+<script src="{{asset('assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+
+<!-- Chart JS -->
+<script src="{{asset('assets/js/plugin/chart.js/chart.min.js')}}"></script>
+
+<!-- jQuery Sparkline -->
+<script src="{{asset('assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
+
+<!-- Chart Circle -->
+<script src="{{asset('assets/js/plugin/chart-circle/circles.min.js')}}"></script>
+
+<!-- Datatables -->
+<script src="{{asset('assets/js/plugin/datatables/datatables.min.js')}}"></script>
+
+<!-- Bootstrap Notify -->
+<script src="{{asset('assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+
+<!-- jQuery Vector Maps -->
+<script src="{{asset('assets/js/plugin/jsvectormap/jsvectormap.min.js')}}"></script>
+<script src="{{asset('assets/js/plugin/jsvectormap/world.js')}}"></script>
+
+<!-- Sweet Alert -->
+<script src="{{asset('assets/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
+
+<!-- Kaiadmin JS -->
+<script src="{{asset('assets/js/kaiadmin.min.js')}}"></script>
+
+<!-- Kaiadmin DEMO methods, don't include it in your project! -->
+<script src="{{asset('')}}assets/js/setting-demo.js"></script>
+<script src="{{asset('')}}assets/js/demo.js"></script>
+<script>
+    $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#177dff",
+        fillColor: "rgba(23, 125, 255, 0.14)",
+    });
+
+    $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#f3545d",
+        fillColor: "rgba(243, 84, 93, .14)",
+    });
+
+    $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
+        type: "line",
+        height: "70",
+        width: "100%",
+        lineWidth: "2",
+        lineColor: "#ffa534",
+        fillColor: "rgba(255, 165, 52, .14)",
+    });
+</script>
 </body>
 </html>

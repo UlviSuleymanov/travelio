@@ -16,17 +16,18 @@ use App\Http\Controllers\admin\AdminController;
 
 
 
+//
+//Route::prefix("/auth")->name('auth.')->group(function () {
+//
+//    Route::get("/login",[AuthController::class,'getLogin'])->name("login");
+//    Route::post("/login",[AuthController::class,'postLogin'])->name("login.post");
+//    Route::get("/signup",[AuthController::class, 'signUp'])->name('signup');
+//    Route::post("/signup",[AuthController::class, 'signUpPost'])->name('signup.post');
+//    Route::get("/forgot-pasword",[AuthController::class, 'forgotPassword'])->name('forgot-password');
+//
+//});
 
-Route::prefix("/auth")->name('auth.')->group(function () {
-
-    Route::get("/login",[AuthController::class,'getLogin'])->name("login");
-    Route::post("/login",[AuthController::class,'postLogin'])->name("login.post");
-    Route::get("/signup",[AuthController::class, 'signUp'])->name('signup');
-    Route::post("/signup",[AuthController::class, 'signUpPost'])->name('signup.post');
-    Route::get("/forgot-pasword",[AuthController::class, 'forgotPassword'])->name('forgot-password');
-
-});
-
-Route::prefix("/admin")->name("admin.")->group(function (){
+Route::prefix("/")->name("admin.")->group(function (){
    Route::get("/dashboard",[AdminController::class,"dashboard"])->name("dashboard");
+   Route::get('/settings',[AdminController::class,"settings"])->name('settings');
 });

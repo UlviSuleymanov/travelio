@@ -1,96 +1,276 @@
+<?php use \Illuminate\Support\Facades\Route;?>
+
+
 <!DOCTYPE html>
-<html class="no-js" lang="en">
+<html lang="en">
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="Laralink">
-    <!-- Favicon Icon -->
-    <link rel="icon" href="{{asset('assets/img/favicon.png')}}">
-    <!-- Site Title -->
-    <title>Traven - Personal & Lifestyle Blog HTML Template</title>
-    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/fontawesome.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/slick.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Travelio - Admin Panel</title>
+    <meta
+        content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+        name="viewport"
+    />
+    <link
+        rel="icon"
+        href="{{asset('assets/img/kaiadmin/favicon.ico')}}"
+        type="image/x-icon"
+    />
+
+    <!-- Fonts and icons -->
+    <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
+    <script>
+        WebFont.load({
+            google: { families: ["Public Sans:300,400,500,600,700"] },
+            custom: {
+                families: [
+                    "Font Awesome 5 Solid",
+                    "Font Awesome 5 Regular",
+                    "Font Awesome 5 Brands",
+                    "simple-line-icons",
+                ],
+                urls: ["assets/css/fonts.min.css"],
+            },
+            active: function () {
+                sessionStorage.fonts = true;
+            },
+        });
+    </script>
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/plugins.min.css')}}" />
+    <link rel="stylesheet" href="{{asset('assets/css/kaiadmin.min.css')}}" />
 </head>
 <body>
-<header class="cs_site_header cs_style_1 cs_with_hamburger cs_primary_color cs_sticky_header">
-    <div class="cs_main_header">
-        <div class="container-fluid">
-            <div class="cs_main_header_in">
-                <div class="cs_main_header_left">
-                    <a class="cs_site_branding" href="/">
-                        <img src="{{asset('assets/img/logo.svg')}}" alt="Logo">
-                    </a>
+<div class="wrapper">
+    <!-- Sidebar -->
+    <div class="sidebar" data-background-color="dark">
+        <div class="sidebar-logo">
+            <!-- Logo Header -->
+            <div class="logo-header" data-background-color="dark">
+                <a href="{{route('admin.dashboard')}}" class="logo">
+                    <img
+                        src="{{asset('assets/img/kaiadmin/logo_light.svg')}}"
+                        alt="navbar brand"
+                        class="navbar-brand"
+                        height="20"
+                    />
+                </a>
+                <div class="nav-toggle">
+                    <button class="btn btn-toggle toggle-sidebar">
+                        <i class="gg-menu-right"></i>
+                    </button>
+                    <button class="btn btn-toggle sidenav-toggler">
+                        <i class="gg-menu-left"></i>
+                    </button>
                 </div>
-                <div class="cs_main_header_right">
-                    <div class="cs_header_btns">
-                        <button class="cs_search_toggle_btn" type="button">
-                            <svg width="25" height="26" viewBox="0 0 25 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g>
-                                    <path d="M24.9999 24.0271L18.477 17.5042C20.1714 15.4319 21.0045 12.7876 20.8039 10.1183C20.6033 7.44901 19.3845 4.9589 17.3995 3.16306C15.4144 1.36722 12.8151 0.40303 10.1391 0.469938C7.46312 0.536846 4.91521 1.62973 3.02241 3.52253C1.12961 5.41533 0.036724 7.96324 -0.0301841 10.6392C-0.0970923 13.3152 0.867093 15.9146 2.66294 17.8996C4.45878 19.8846 6.94889 21.1035 9.61819 21.304C12.2875 21.5046 14.9318 20.6715 17.0041 18.9771L23.527 25.5L24.9999 24.0271ZM10.4166 19.25C8.76838 19.25 7.15722 18.7613 5.78681 17.8456C4.4164 16.9299 3.3483 15.6284 2.71757 14.1057C2.08683 12.583 1.92181 10.9074 2.24335 9.29093C2.56489 7.67442 3.35857 6.18956 4.52401 5.02413C5.68944 3.85869 7.1743 3.06502 8.79081 2.74347C10.4073 2.42193 12.0829 2.58696 13.6056 3.21769C15.1283 3.84842 16.4298 4.91652 17.3455 6.28693C18.2612 7.65734 18.7499 9.26851 18.7499 10.9167C18.7474 13.1261 17.8686 15.2442 16.3064 16.8065C14.7441 18.3688 12.6259 19.2475 10.4166 19.25Z" fill="currentColor"/>
-                                </g>
-                                <defs>
-                                    <clipPath>
-                                        <rect width="25" height="25" fill="white" transform="translate(0 0.5)"/>
-                                    </clipPath>
-                                </defs>
-                            </svg>
-                        </button>
-                        <button class="cs_hamburger_btn cs_hamburger_icon" type="button">
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
+                <button class="topbar-toggler more">
+                    <i class="gg-more-vertical-alt"></i>
+                </button>
+            </div>
+            <!-- End Logo Header -->
+        </div>
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+                <ul class="nav nav-secondary">
+                    <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                        <h4 class="text-section">Ayarlar</h4>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#base">
+                            <i class="fas fa-layer-group"></i>
+                            <p>Əsas Ayarlar</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="base">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="{{route('admin.settings')}}">
+                                        <span class="sub-item">Əsas Ayarlar</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{route('admin.settings')}}">
+                                        <span class="sub-item">Əlaqə</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-section">
+                <span class="sidebar-mini-icon">
+                  <i class="fa fa-ellipsis-h"></i>
+                </span>
+                        <h4 class="text-section">Ana Səhifə</h4>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                            <i class="fas fa-th-list"></i>
+                            <p>Sidebar Layouts</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="sidebarLayouts">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="sidebar-style-2.html">
+                                        <span class="sub-item">Sidebar Style 2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="icon-menu.html">
+                                        <span class="sub-item">Icon Menu</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#forms">
+                            <i class="fas fa-pen-square"></i>
+                            <p>Forms</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="forms">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="forms/forms.html">
+                                        <span class="sub-item">Basic Form</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#tables">
+                            <i class="fas fa-table"></i>
+                            <p>Tables</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="tables">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="tables/tables.html">
+                                        <span class="sub-item">Basic Table</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="tables/datatables.html">
+                                        <span class="sub-item">Datatables</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#maps">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p>Maps</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="maps">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="maps/googlemaps.html">
+                                        <span class="sub-item">Google Maps</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="maps/jsvectormap.html">
+                                        <span class="sub-item">Jsvectormap</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#charts">
+                            <i class="far fa-chart-bar"></i>
+                            <p>Charts</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="charts">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="charts/charts.html">
+                                        <span class="sub-item">Chart Js</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="charts/sparkline.html">
+                                        <span class="sub-item">Sparkline</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="widgets.html">
+                            <i class="fas fa-desktop"></i>
+                            <p>Widgets</p>
+                            <span class="badge badge-success">4</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../../documentation/index.html">
+                            <i class="fas fa-file"></i>
+                            <p>Documentation</p>
+                            <span class="badge badge-secondary">1</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#submenu">
+                            <i class="fas fa-bars"></i>
+                            <p>Menu Levels</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="submenu">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a data-bs-toggle="collapse" href="#subnav1">
+                                        <span class="sub-item">Level 1</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <div class="collapse" id="subnav1">
+                                        <ul class="nav nav-collapse subnav">
+                                            <li>
+                                                <a href="#">
+                                                    <span class="sub-item">Level 2</span>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="#">
+                                                    <span class="sub-item">Level 2</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a data-bs-toggle="collapse" href="#subnav2">
+                                        <span class="sub-item">Level 1</span>
+                                        <span class="caret"></span>
+                                    </a>
+                                    <div class="collapse" id="subnav2">
+                                        <ul class="nav nav-collapse subnav">
+                                            <li>
+                                                <a href="#">
+                                                    <span class="sub-item">Level 2</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="sub-item">Level 1</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</header>
-<div class="cs_hamburger_header">
-    <div class="cs_hamburger_in">
-        <button class="cs_hamburger_close" type="button">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M26.4233 14.7567L21.18 20L26.4233 25.2433C26.7483 25.5683 26.7483 26.0967 26.4233 26.4217C26.26 26.585 26.0467 26.665 25.8333 26.665C25.62 26.665 25.4067 26.5833 25.2433 26.4217L20 21.1783L14.7567 26.4217C14.5933 26.585 14.38 26.665 14.1667 26.665C13.9533 26.665 13.74 26.5833 13.5767 26.4217C13.2517 26.0967 13.2517 25.5683 13.5767 25.2433L18.82 20L13.5767 14.7567C13.2517 14.4317 13.2517 13.9033 13.5767 13.5783C13.9017 13.2533 14.43 13.2533 14.755 13.5783L19.9983 18.8217L25.2417 13.5783C25.5667 13.2533 26.095 13.2533 26.42 13.5783C26.745 13.9033 26.745 14.4317 26.42 14.7567H26.4233ZM40 20C40 31.0283 31.0283 40 20 40C8.97167 40 0 31.0283 0 20C0 8.97167 8.97167 0 20 0C31.0283 0 40 8.97167 40 20ZM38.3333 20C38.3333 9.89167 30.1083 1.66667 20 1.66667C9.89167 1.66667 1.66667 9.89167 1.66667 20C1.66667 30.1083 9.89167 38.3333 20 38.3333C30.1083 38.3333 38.3333 30.1083 38.3333 20Z" fill="currentColor"/>
-            </svg>
-        </button>
-        <div class="cs_hamburger_overlay cs_header_overlay"></div>
-        <div class="cs_hamburger_nav">
-            <ul class="cs_hamburger_nav_list cs_fs_45 cs_white_color">
-                <li>
-                    <a href="/">Home</a>
-                </li>
-                <li><a href="/az/about">About Us</a></li>
-                <li>
-                    <a href="/az/blog">Blogs</a>
-{{--                    <ul>--}}
-
-{{--                        <li><a href="blogs.html">Blog Grid</a></li>--}}
-{{--                        <li><a href="blog-details.html">Blog Details</a></li>--}}
-{{--                        <li><a href="blog-details-v2.html">Blog Details V2</a></li>--}}
-{{--                        <li><a href="blog-details-v3.html">Blog Details V3</a></li>--}}
-{{--                    </ul>--}}
-                </li>
-                <li><a href="/az/contact">Contact</a></li>
-            </ul>
-        </div>
-        <div class="cs_social_links cs_style_1">
-            <a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a>
-            <a href="#"><i class="fa-brands fa-x-twitter"></i>Twitter</a>
-            <a href="#"><i class="fa-brands fa-whatsapp"></i>WhatsApp</a>
-        </div>
-    </div>
-</div>
-<div class="cs_modal_search cs_center">
-    <div class="cs_search_overlay cs_header_overlay"></div>
-    <form action="#" class="cs_modal_search_form">
-        <button class="cs_search_close" type="button">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M26.4233 14.7567L21.18 20L26.4233 25.2433C26.7483 25.5683 26.7483 26.0967 26.4233 26.4217C26.26 26.585 26.0467 26.665 25.8333 26.665C25.62 26.665 25.4067 26.5833 25.2433 26.4217L20 21.1783L14.7567 26.4217C14.5933 26.585 14.38 26.665 14.1667 26.665C13.9533 26.665 13.74 26.5833 13.5767 26.4217C13.2517 26.0967 13.2517 25.5683 13.5767 25.2433L18.82 20L13.5767 14.7567C13.2517 14.4317 13.2517 13.9033 13.5767 13.5783C13.9017 13.2533 14.43 13.2533 14.755 13.5783L19.9983 18.8217L25.2417 13.5783C25.5667 13.2533 26.095 13.2533 26.42 13.5783C26.745 13.9033 26.745 14.4317 26.42 14.7567H26.4233ZM40 20C40 31.0283 31.0283 40 20 40C8.97167 40 0 31.0283 0 20C0 8.97167 8.97167 0 20 0C31.0283 0 40 8.97167 40 20ZM38.3333 20C38.3333 9.89167 30.1083 1.66667 20 1.66667C9.89167 1.66667 1.66667 9.89167 1.66667 20C1.66667 30.1083 9.89167 38.3333 20 38.3333C30.1083 38.3333 38.3333 30.1083 38.3333 20Z" fill="currentColor"/>
-            </svg>
-        </button>
-        <input type="text" placeholder="Type to search..." class="cs_fs_32 cs_modal_search_input">
-    </form>
-</div>
-<div class="cs_header_height_100"></div>
