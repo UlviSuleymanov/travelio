@@ -7,12 +7,21 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    public function dashboard(){
-        return view("admin/dashboard");
+    public function dashboard(Request $request){
+
+        return view('admin.dashboard');
     }
 
-    public function settings(){
-        return view('admin/settings/settings');
+
+    public function blogsManage(){
+        return view('admin/blogs/manage');
     }
 
+    public function blogsAdd(){
+        return view('admin/blogs/add');
+
+    }
+    public function blogsEdit(){
+        return view('admin/blogs/edit');
+    }
 }

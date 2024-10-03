@@ -1,11 +1,16 @@
-@extends("layouts.admin.layout")
-
-@section("css")
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Toastr CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
-@endsection
+</head>
 
-@section("content")
+<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -40,10 +45,50 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section("js")
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap 5 JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Toastr JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-@endsection
+
+    <script>
+        $(document).ready(function() {
+            // Configure Toastr
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true,
+                "positionClass": "toast-top-right",
+            }
+
+            // Login form submission
+            $("#loginForm").submit(function(e) {
+                e.preventDefault();
+                var email = $("#loginEmail").val();
+                var password = $("#loginPassword").val();
+
+                // Here you would typically send an AJAX request to your server
+                // For this example, we'll just simulate a successful login
+                setTimeout(function() {
+                    toastr.success("Login successful!", "Welcome back!");
+                    // Clear the form
+                    $("#loginForm")[0].reset();
+                }, 1000);
+            });
+
+            // Forgot password link
+            $("#forgotPassword").click(function(e) {
+                e.preventDefault();
+                var email = $("#loginEmail").val();
+                if (email) {
+                    // Here you would typically send an AJAX request to your server
+                    // For this example, we'll just simulate a password reset email
+                    toastr.info("Password reset instructions sent to " + email, "Check your email");
+                } else {
+                    toastr.warning("Please enter your email address first", "Email required");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

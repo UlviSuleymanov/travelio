@@ -20,6 +20,7 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
+        $
         $this->validate($request, [
             'email' => 'required|email',
             'password' => 'required',
@@ -49,28 +50,21 @@ class AuthController extends Controller
 
     public function signUp(Request $request)
     {
-
         return view("admin.auth.signup");
     }
 
 
     public function signUpPost(Request $request)
     {
-
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|',
-            'password' => 'required|string|',
+        $incomingFields = $request->validate([
+            'full_name' => ['required','max:50'],
+            'email' => ['required','email'],
+            'password' => ['required','max:50'],
         ]);
 
-        $admin = Admin::create([
-            'full_name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password')),
-            'email_verify'=>0,
-        ]);
-
-        auth()->guard('web')->login($admin);
+        $incomingFields['password'] = Hash::make($incomingFields['password']);
+        $admin = Admin::create($incomingFields);
+        auth()->guard('admin')->login($admin);
         return redirect()->route('admin.dashboard')->with('success', 'Registration successful! You are logged in.');
     }
 

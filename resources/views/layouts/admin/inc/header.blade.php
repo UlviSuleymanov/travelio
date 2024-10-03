@@ -18,6 +18,7 @@
 
     <!-- Fonts and icons -->
     <script src="{{asset('assets/js/plugin/webfont/webfont.min.js')}}"></script>
+    <script src="{{asset('assets/css/fontawesome.min.css')}}"></script>
     <script>
         WebFont.load({
             google: { families: ["Public Sans:300,400,500,600,700"] },
@@ -76,24 +77,24 @@
                 <span class="sidebar-mini-icon">
                   <i class="fa fa-ellipsis-h"></i>
                 </span>
-                        <h4 class="text-section">Ayarlar</h4>
+                        <h4 class="text-section">Xəbərlər</h4>
                     </li>
                     <li class="nav-item">
                         <a data-bs-toggle="collapse" href="#base">
                             <i class="fas fa-layer-group"></i>
-                            <p>Əsas Ayarlar</p>
+                            <p>Xəbərlər</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse" id="base">
                             <ul class="nav nav-collapse">
                                 <li>
-                                    <a href="{{route('admin.settings')}}">
-                                        <span class="sub-item">Əsas Ayarlar</span>
+                                    <a href="{{route('admin.blogs-manage')}}">
+                                        <span class="sub-item">Idarə et</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{route('admin.settings')}}">
-                                        <span class="sub-item">Əlaqə</span>
+                                    <a href="{{route('admin.blogs-add')}}">
+                                        <span class="sub-item">Əlavə et</span>
                                     </a>
                                 </li>
                             </ul>
@@ -108,7 +109,7 @@
                     <li class="nav-item">
                         <a data-bs-toggle="collapse" href="#sidebarLayouts">
                             <i class="fas fa-th-list"></i>
-                            <p>Sidebar Layouts</p>
+                            <p>Slider</p>
                             <span class="caret"></span>
                         </a>
                         <div class="collapse" id="sidebarLayouts">
