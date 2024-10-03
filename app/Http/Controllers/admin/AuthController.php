@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
 use  \App\Models\Admin;
+use Illuminate\Validation\Rule;
 
 class AuthController extends Controller
 {
@@ -20,18 +21,17 @@ class AuthController extends Controller
 
     public function postLogin(Request $request)
     {
-        $
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required',
+        $incomingFields = $request->validate([
+            'loginEmail'=>['required','email'],
+            'loginPassword'=>['required'],
         ]);
 
-        if (auth()->guard('web')->attempt([
-            'email' => $request->input('email'),
-            'password' => $request->input('password')
+
+        if (auth()->guard('admin')->attempt([
+            'email' => $incomingFields['loginEmail'],
+            'password' => $incomingFields['loginPassword'],
         ])) {
-
-
+            $request->session()->regenerate();
             return redirect()->route('admin.dashboard')->with('success', 'You are Logged in sucessfully.');
 
         } else {
@@ -43,7 +43,7 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
-        auth()->guard('web')->logout();
+        auth()->guard('admin')->logout();
         Session::flush();
         return redirect(route('auth.login'))->withSuccess("Logged out successfully!");
     }
@@ -57,8 +57,8 @@ class AuthController extends Controller
     public function signUpPost(Request $request)
     {
         $incomingFields = $request->validate([
-            'full_name' => ['required','max:50'],
-            'email' => ['required','email'],
+            'full_name' => ['required','max:50',Rule::unique('administration','full_name')],
+            'email' => ['required','email',Rule::unique('administration','email')],
             'password' => ['required','max:50'],
         ]);
 
@@ -69,9 +69,5 @@ class AuthController extends Controller
     }
 
 
-    public function forgotPassword()
-    {
-
-    }
 
 }

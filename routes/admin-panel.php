@@ -23,13 +23,14 @@ Route::prefix("/auth")->name('auth.')->group(function () {
     Route::post("/login",[AuthController::class,'postLogin'])->name("login.post");
     Route::get("/signup",[AuthController::class, 'signUp'])->name('signup');
     Route::post("/signup",[AuthController::class, 'signUpPost'])->name('signup.post');
-    Route::get("/forgot-pasword",[AuthController::class, 'forgotPassword'])->name('forgot-password');
-
+    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 });
 
 Route::middleware(['auth:admin'])->prefix('/')->name("admin.")->group(function (){
    Route::get("/dashboard",[AdminController::class,"dashboard"])->name("dashboard");
    Route::get('/blogs/manage',[AdminController::class,"blogsManage"])->name('blogs-manage');
-   Route::post('/blogs/add',[AdminController::class,"blogsAdd"])->name('blogs-add');
-   Route::post('/blogs/edit',[AdminController::class,"blogsEdit"])->name('blogs-add');
+   Route::get('/blogs/add',[AdminController::class,"blogsAdd"])->name('blogs-add');
+   Route::post('/blogs/add',[AdminController::class,"blogsAddPost"])->name('blogs-addPost');
+   Route::get('/blogs/edit',[AdminController::class,"blogsEdit"])->name('blogs-edit');
+   Route::post('/blogs/edit',[AdminController::class,"blogsEditPost"])->name('blogs-editPost');
 });

@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 class AdminController extends Controller
 {
     public function dashboard(Request $request){
+        $admin = auth()->user();
 
-        return view('admin.dashboard');
+        return view('admin.dashboard', compact('admin'));
     }
 
 
@@ -21,7 +22,13 @@ class AdminController extends Controller
         return view('admin/blogs/add');
 
     }
-    public function blogsEdit(){
+    public function blogsAddPost(){
+        return view('admin/blogs/add');
+    }
+    public function blogsEdit(Request $request){
+        return view('admin/blogs/edit');
+    }
+    public function blogsEditPost(Request $request){
         return view('admin/blogs/edit');
     }
 }
