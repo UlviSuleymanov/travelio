@@ -3,12 +3,17 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
 
     public function index(){
-        return view("front/home");
+        $blogs = Blog::with('admin')->get();
+        return view("front/home", compact('blogs'));
     }
+
+
+
 }

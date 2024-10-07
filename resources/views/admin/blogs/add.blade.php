@@ -10,8 +10,8 @@
             <div class="col-md-8">
                 <div class="form-container p-4">
                     <h2 class="mb-4 text-center">Xəbər Əlavə et</h2>
-                    <form action="{{"admin.blogs-addPost"}}" method="POST">
-                        @csrf
+                    <form action="{{ route('admin.blogs-addPost') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                         <div class="mb-3">
                             <label for="title" class="form-label">Title</label>
                             <input type="text" class="form-control" id="title" name="title" required>

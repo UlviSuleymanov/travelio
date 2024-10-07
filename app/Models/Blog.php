@@ -9,8 +9,18 @@ class Blog extends Model
 {
     use HasFactory;
 
-
-    protected $fillable=[
-
+    protected $fillable = [
+        'title',
+        'description',
+        'slug',
+        'category_id',
+        'admin_id',
+        'thumb',
+        'image',
+        'status',
     ];
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
 }

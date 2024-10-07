@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\AuthController;
 use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\BlogController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,22 +16,20 @@ use App\Http\Controllers\admin\AdminController;
 */
 
 
-
-
 Route::prefix("/auth")->name('auth.')->group(function () {
 
     Route::get("/login",[AuthController::class,'getLogin'])->name("login");
     Route::post("/login",[AuthController::class,'postLogin'])->name("login.post");
     Route::get("/signup",[AuthController::class, 'signUp'])->name('signup');
     Route::post("/signup",[AuthController::class, 'signUpPost'])->name('signup.post');
-    Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+    Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
 
 Route::middleware(['auth:admin'])->prefix('/')->name("admin.")->group(function (){
    Route::get("/dashboard",[AdminController::class,"dashboard"])->name("dashboard");
-   Route::get('/blogs/manage',[AdminController::class,"blogsManage"])->name('blogs-manage');
-   Route::get('/blogs/add',[AdminController::class,"blogsAdd"])->name('blogs-add');
-   Route::post('/blogs/add',[AdminController::class,"blogsAddPost"])->name('blogs-addPost');
-   Route::get('/blogs/edit',[AdminController::class,"blogsEdit"])->name('blogs-edit');
-   Route::post('/blogs/edit',[AdminController::class,"blogsEditPost"])->name('blogs-editPost');
+   Route::get('/blogs/manage',[BlogController::class,"blogsManage"])->name('blogs-manage');
+   Route::get('/blogs/add',[BlogController::class,"blogsAdd"])->name('blogs-add');
+   Route::post('/blogs/add',[BlogController::class,"blogsAddPost"])->name('blogs-addPost');
+   Route::match(['get', 'post'], '/admin/blogs/{id}/edit', [BlogController::class, 'editOrUpdate'])->name('blogs-edit');
+   Route::delete('/blogs/delete/{id}', [BlogController::class, 'blogsDelete'])->name('blogs-delete');
 });

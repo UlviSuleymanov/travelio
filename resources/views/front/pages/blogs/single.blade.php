@@ -1,4 +1,4 @@
-@extends("")
+@extends("layouts.front.layout")
 
 
 @section("content")
@@ -25,15 +25,15 @@
                         </div>
                         <div class="col-lg-10">
                             <div class="cs_post_details cs_style_1">
-                                <div class="cs_fs_23 cs_mb_30 cs_mb_lg_15">By <a href="Nikola"></a> / 23 April 2024</div>
-                                <h1>Whisking Up Magic: Exploring the Art of Cooking</h1>
+                                <div class="cs_fs_23 cs_mb_30 cs_mb_lg_15">By {{$blog->admin->full_name}} / 23 April 2024</div>
+                                <h1>{{$blog->title}}</h1>
                                 <div class="row">
-                                    <div class="col-lg-6">
-                                        <p>Welcome to "Whisking Up Magic," where we delve into the enchanting world of cooking. Cooking is more than just a necessity; it's an art form, a way to express creativity, and a means to bring joy and nourishment to ourselves and others. In this article, we will explore various aspects of cooking, from mastering essential techniques to experimenting with innovative recipes. Join us on this culinary journey to discover how you can create magic in your kitchen</p>
+                                    <div class="col-lg-12">
+                                        <p>
+                                            {{$blog->description}}
+                                        </p>
                                     </div>
-                                    <div class="col-lg-6">
-                                        <p>Before we dive into the more intricate aspects of cooking, it's essential to understand the basics. This chapter covers fundamental techniques such as chopping, sautéing, boiling, and roasting. We'll also explore essential kitchen tools and ingredients that form the foundation of many dishes. Mastering these basics will set you up for success in all your culinary endeavors.</p>
-                                    </div>
+
                                 </div>
                                 <div class="cs_height_30 cs_height_lg_20"></div>
                                 <img src="{{asset('assets/img/blog_details_2.webp')}}" alt="">

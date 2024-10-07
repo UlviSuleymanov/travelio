@@ -17,31 +17,14 @@ use App\Http\Middleware\Language;
 |
 */
 
-Route::get("/", [HomeController::class, "index"])->name("home");
 
 
-Route::prefix("/{az}")->name('site.')->group(function () {
+
+Route::prefix("/")->name('site.')->group(function () {
+    Route::get("/", [HomeController::class, "index"])->name("home");
     Route::get("/about", [PagesController::class, "about"])->name("about");
     Route::get("/contact", [PagesController::class, "contact"])->name("contact");
     Route::post("/contact-form", [PagesController::class, "contactForm"])->name("contact.form");
     Route::get("/blog", [BlogsController::class, "index"])->name("blog");
-    Route::get("/blog-detail/{slug}", [BlogsController::class, "single"])->name("blog.single");
-
+    Route::get("/blog/{slug}", [BlogsController::class, "single"])->name("blog-single");
 });
-
-// Email verification routes
-Route::get('/email/verify', function () {
-    return view('auth.verify-email');
-})->middleware('auth')->name('verification.notice');
-
-Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
-    $request->fulfill();
-
-    return redirect('/home');
-})->middleware(['auth', 'signed'])->name('verification.verify');
-
-Route::post('/email/verification-notification', function (Request $request) {
-    $request->user()->sendEmailVerificationNotification();
-
-    return back()->with('message', 'Verification link sent!');
-})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
