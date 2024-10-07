@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="cs_main_header_in">
                 <div class="cs_main_header_left">
-                    <a class="cs_site_branding" href="index.html">
+                    <a class="cs_site_branding" href="/">
                         <img src="{{asset('assets/img/logo.svg')}}" alt="Logo">
                     </a>
                 </div>
@@ -58,41 +58,21 @@
         <div class="cs_hamburger_overlay cs_header_overlay"></div>
         <div class="cs_hamburger_nav">
             <ul class="cs_hamburger_nav_list cs_fs_45 cs_white_color">
-                <li class="menu-item-has-children">
-                    <a href="index.html">Home</a>
-                    <ul>
-                        <li><a href="index.html">Lifestyle</a></li>
-                        <li><a href="podcast.html">Podcast</a></li>
-                        <li><a href="creative.html">Creative</a></li>
-                        <li><a href="fashion.html">Fashion</a></li>
-                        <li><a href="cooking.html">Cooking</a></li>
-                        <li><a href="travel.html">Travel</a></li>
-                        <li><a href="dev.html">DEV</a></li>
-                        <li><a href="classic.html">Classic</a></li>
-                        <li><a href="personal.html">Personal</a></li>
-                        <li><a href="masonary.html">Masonary</a></li>
-                    </ul>
+                <li>
+                    <a href="/">Home</a>
                 </li>
-                <li><a href="about.html">About Us</a></li>
-                <li class="menu-item-has-children">
-                    <a href="#">Pages</a>
-                    <ul>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li><a href="episodes.html">Episodes</a></li>
-                        <li><a href="archive.html">Archive</a></li>
-                    </ul>
+                <li><a href="/az/about">About Us</a></li>
+                <li>
+                    <a href="/az/blog">Blogs</a>
+{{--                    <ul>--}}
+
+{{--                        <li><a href="blogs.html">Blog Grid</a></li>--}}
+{{--                        <li><a href="blog-details.html">Blog Details</a></li>--}}
+{{--                        <li><a href="blog-details-v2.html">Blog Details V2</a></li>--}}
+{{--                        <li><a href="blog-details-v3.html">Blog Details V3</a></li>--}}
+{{--                    </ul>--}}
                 </li>
-                <li class="menu-item-has-children">
-                    <a href="blogs.html">Blogs</a>
-                    <ul>
-                        <li><a href="blogs.html">Blog Grid</a></li>
-                        <li><a href="blog-details.html">Blog Details</a></li>
-                        <li><a href="blog-details-v2.html">Blog Details V2</a></li>
-                        <li><a href="blog-details-v3.html">Blog Details V3</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="/az/contact">Contact</a></li>
             </ul>
         </div>
         <div class="cs_social_links cs_style_1">
