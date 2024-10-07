@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class BlogsController extends Controller
@@ -12,7 +13,8 @@ class BlogsController extends Controller
     }
 
     public function single(string $slug){
-         //Databaseden data cekilmeli ve viewa gonderilmelidir.
-        return view("front/pages/blogs/single");
+        $blog = Blog::with('admin')->where('slug', $slug)->firstOrFail();
+
+        return view("front/pages/blogs/single", compact('blog'));
     }
 }

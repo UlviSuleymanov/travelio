@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="cs_main_header_in">
                 <div class="cs_main_header_left">
-                    <a class="cs_site_branding" href="index.html">
+                    <a class="cs_site_branding" href="/">
                         <img src="{{asset('assets/img/logo.svg')}}" alt="Logo">
                     </a>
                 </div>
