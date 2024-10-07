@@ -26,10 +26,14 @@ Route::prefix("/auth")->name('auth.')->group(function () {
 });
 
 Route::middleware(['auth:admin'])->prefix('/')->name("admin.")->group(function (){
+    //dashboard
    Route::get("/dashboard",[AdminController::class,"dashboard"])->name("dashboard");
+   //Blogs
    Route::get('/blogs/manage',[BlogController::class,"blogsManage"])->name('blogs-manage');
    Route::get('/blogs/add',[BlogController::class,"blogsAdd"])->name('blogs-add');
    Route::post('/blogs/add',[BlogController::class,"blogsAddPost"])->name('blogs-addPost');
    Route::match(['get', 'post'], '/admin/blogs/{id}/edit', [BlogController::class, 'editOrUpdate'])->name('blogs-edit');
    Route::delete('/blogs/delete/{id}', [BlogController::class, 'blogsDelete'])->name('blogs-delete');
+   Route::post('/admin/blogs/{id}/status', [BlogController::class, 'updateStatus'])->name('blogs-updateStatus');
+
 });

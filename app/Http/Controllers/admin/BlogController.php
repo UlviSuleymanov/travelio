@@ -117,4 +117,20 @@ class BlogController extends Controller
 
         return redirect()->route('admin.blogs-manage')->with('success', 'Blog post deleted successfully!');
     }
+
+
+    public function updateStatus(Request $request, $id)
+    {
+        $blog = Blog::find($id);
+
+        if ($blog) {
+            $blog->status = $request->status; // Set the status to the value sent from the AJAX request
+            $blog->save(); // Save the changes
+
+            return response()->json(['success' => true, 'status' => $blog->status]);
+        }
+
+        return response()->json(['success' => false, 'message' => 'Blog not found.'], 404);
+    }
+
 }

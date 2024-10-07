@@ -1,6 +1,8 @@
 @extends('layouts.admin.layout')
 
 @section('content')
+
+
     <body class="container-fluid">
     <div class="row gap-0">
         <div class="col-md-6 gap-0">
@@ -231,18 +233,11 @@
                 <div class="row justify-content-center">
                     <div class="col-md-10">
                         <h2 class="text-center mb-4">Blog Management</h2>
-
-                        @if(session('success'))
-                            <div class="alert alert-success text-center">
-                                {{ session('success') }}
-                            </div>
-                        @endif
-
                         <div class="table-responsive">
-                            <table class="table table-bordered table-striped">
+                            <table class="table table-striped table-hover">
                                 <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>ID</th>
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Slug</th>
@@ -258,20 +253,22 @@
                                         <td>{{ \Illuminate\Support\Str::limit($blog->description, 100) }}</td>
                                         <td>{{ $blog->slug }}</td>
                                         <td>
-                                            @if($blog->status == 1)
-                                                <span class="badge bg-success">Active</span>
-                                            @else
-                                                <span class="badge bg-danger">Inactive</span>
-                                            @endif
+                                            <input type="checkbox" value="{{$blog->status}}"
+                                                   class="form-check-input status-checkbox"
+                                                   data-id="{{ $blog->id }}" {{-- Store blog ID for easy access --}}
+                                                {{ $blog->status == 1 ? 'checked' : '' }}>
                                         </td>
-
-
                                         <td>
-                                            <a href="{{ route('admin.blogs-edit', ['id' => $blog->id]) }}" class="btn btn-sm btn-warning">Edit</a>
-                                            <form action="{{ route('admin.blogs-delete', ['id' => $blog->id]) }}" method="POST" style="display:inline-block;">
+                                            <a href="{{ route('admin.blogs-edit', ['id' => $blog->id]) }}"
+                                               class="btn btn-sm btn-primary me-1">Update</a>
+                                            <form action="{{ route('admin.blogs-delete', ['id' => $blog->id]) }}"
+                                                  method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete this blog?');">Delete</button>
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                        onclick="return confirm('Are you sure you want to delete this blog?');">
+                                                    Delete
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -287,8 +284,11 @@
                 </div>
             </div>
         </div>
-
     </div>
-
     </body>
+@endsection
+
+@section("js")
+
+
 @endsection
