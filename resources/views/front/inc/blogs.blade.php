@@ -16,8 +16,8 @@
                     @foreach($blogs as $blog)
                         <div class="cs_slide">
                             <div class="cs_post cs_style_1 cs_radius_15">
-                                <a href="{{$blog->slug}}" class="cs_post_thumb d-block cs_zoom cs_mb_32">
-                                    <img src="{{"/storage/".$blog->thumb}}" alt="Thumb" class="cs_zoom_in">
+                                <a href="{{route('site.blog-single', ['slug' => $blog->slug]) }}" class="cs_post_thumb d-block cs_zoom cs_mb_32">
+                                    <img src="{{"/storage/". $blog->thumb}}" alt="Thumb" class="cs_zoom_in">
                                 </a>
                                 <div class="cs_post_info">
                                     <p class="cs_post_meta cs_mb_25 cs_mb_xl_10 cs_fs_23">By <a
