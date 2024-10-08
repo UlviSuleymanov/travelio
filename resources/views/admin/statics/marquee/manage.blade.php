@@ -2,42 +2,41 @@
 
 @section('content')
 
+
+    <body class="container-fluid">
     <div class="row gap-0">
         <div class="col-md-8 mt-5 gap-0" style="margin-left: 300px">
+
             <div class="">
                 <div class="row justify-content-center">
                     <div class="col-md-10">
-                        <a href="{{route('admin.blogs-add')}}" class="btn btn-primary">Əlavə et</a>
-                        <h2 class="text-center mb-4">Blog Management</h2>
+                        <a href="{{route('admin.marquee-add')}}" class="btn btn-primary">Əlavə et</a>
+                        <h2 class="text-center mb-4">Slider</h2>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
                                     <th>Title</th>
-                                    <th>Description</th>
-                                    <th>Slug</th>
 {{--                                    <th>Status</th>--}}
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @forelse($blogs as $blog)
+                                @forelse($marquees as $marquee)
                                     <tr>
-                                        <td>{{ $blog->id }}</td>
-                                        <td>{{ $blog->title }}</td>
-                                        <td>{{ \Illuminate\Support\Str::limit($blog->description, 100) }}</td>
-                                        <td>{{ $blog->slug }}</td>
+                                        <td>{{ $marquee->id }}</td>
+                                        <td>{{ $marquee->title }}</td>
 {{--                                        <td>--}}
-{{--                                            <input type="checkbox" value="{{$blog->status}}"--}}
+{{--                                            <input type="checkbox" value="{{$marquee->status}}"--}}
 {{--                                                   class="form-check-input status-checkbox"--}}
-{{--                                                   data-id="{{ $blog->id }}" --}}{{-- Store blog ID for easy access --}}
-{{--                                                {{ $blog->status == 1 ? 'checked' : '' }}>--}}
+{{--                                                   data-id="{{ $marquee->id }}"--}}
+{{--                                                {{ $marquee->status == 1 ? 'checked' : '' }}>--}}
 {{--                                        </td>--}}
                                         <td>
-                                            <a href="{{ route('admin.blogs-edit', ['id' => $blog->id]) }}"
+                                            <a href="{{ route('admin.marquee-edit', ['id' => $marquee->id]) }}"
                                                class="btn btn-sm btn-primary me-1">Update</a>
-                                            <form action="{{ route('admin.blogs-delete', ['id' => $blog->id]) }}"
+                                            <form action="{{ route('admin.marquee-delete', ['id' => $marquee->id]) }}"
                                                   method="POST" style="display:inline-block;">
                                                 @csrf
                                                 @method('DELETE')
@@ -50,7 +49,7 @@
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="6" class="text-center">No blogs found.</td>
+                                        <td colspan="6" class="text-center">No Slider found.</td>
                                     </tr>
                                 @endforelse
                                 </tbody>
@@ -60,6 +59,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    </body>
 @endsection
 
 @section("js")

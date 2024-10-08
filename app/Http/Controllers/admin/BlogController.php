@@ -22,10 +22,10 @@ class BlogController extends Controller
         return view('admin/blogs/add');
     }
 
-    // Handle the blog form submission
+
     public function blogsAddPost(Request $request)
     {
-        // Validate the form data
+
         $validated = $request->validate([
             'title' => 'required|max:500',
             'description' => 'required',
@@ -33,26 +33,26 @@ class BlogController extends Controller
             'thumb' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle image and thumbnail upload
+
         $imagePath = $request->file('image')->store('blogs/images', 'public');
         $thumbPath = $request->file('thumb')->store('blogs/thumbnails', 'public');
 
-        // Create a slug for the blog post
+
         $slug = Str::slug($request->title);
 
-        // Save the blog post
+
         Blog::create([
             'title' => $request->title,
             'description' => $request->description,
             'slug' => $slug,
-            'category_id' => 1, // Assign a category ID, you can fetch this dynamically if needed
-            'admin_id' => auth()->user()->id, // Assuming the admin is logged in
+            'category_id' => 1, // Kateqoriya istenilmediyi ucun default olaraq 1.
+            'admin_id' => auth()->user()->id,//Log olmus adminin idsi.
             'thumb' => $thumbPath,
             'image' => $imagePath,
             'status' => 1, // Default status
         ]);
 
-        // Redirect to the manage blogs page with a success message
+
         return redirect()->route('admin.blogs-manage')->with('success', 'Blog post created successfully!');
     }
 
@@ -119,6 +119,7 @@ class BlogController extends Controller
     }
 
 
+    //status toggle
     public function updateStatus(Request $request, $id)
     {
         $blog = Blog::find($id);

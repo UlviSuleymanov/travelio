@@ -41,10 +41,10 @@
     <link rel="stylesheet" href="{{asset('assets/css/plugins.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/css/kaiadmin.min.css')}}" />
 </head>
-<body class="overflow-hidden">
+<body class="">
 <div class="wrapper">
     <!-- Sidebar -->
-    <div class="sidebar" data-background-color="dark">
+    <div class="sidebar overflow-hidden" data-background-color="dark">
         <div class="sidebar-logo">
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="dark">
@@ -78,6 +78,22 @@
                             <ul class="nav nav-collapse">
                                 <li>
                                     <a href="{{route('admin.slider-manage')}}">
+                                        <span class="sub-item">Idarə et</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#basezz">
+                            <i class="fas fa-layer-group"></i>
+                            <p>Info Lent</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="basezz">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="{{route('admin.marquee-manage')}}">
                                         <span class="sub-item">Idarə et</span>
                                     </a>
                                 </li>
