@@ -18,6 +18,10 @@
                             <input type="text" class="form-control" id="title" name="title" value="{{ old('title', $slider->title) }}" required>
                         </div>
                         <div class="mb-3">
+                            <label for="link" class="form-label">Link</label>
+                            <input type="text" class="form-control" id="link" name="link" value="{{ old('link', $slider->link) }}" required>
+                        </div>
+                        <div class="mb-3">
                             <label for="image" class="form-label">Image</label>
                             <input type="file" class="form-control" name="image" id="image" accept="image/*">
                             @if($slider->image)
