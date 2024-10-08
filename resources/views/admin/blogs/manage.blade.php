@@ -17,7 +17,7 @@
                                     <th>Title</th>
                                     <th>Description</th>
                                     <th>Slug</th>
-                                    <th>Status</th>
+{{--                                    <th>Status</th>--}}
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -28,12 +28,12 @@
                                         <td>{{ $blog->title }}</td>
                                         <td>{{ \Illuminate\Support\Str::limit($blog->description, 100) }}</td>
                                         <td>{{ $blog->slug }}</td>
-                                        <td>
-                                            <input type="checkbox" value="{{$blog->status}}"
-                                                   class="form-check-input status-checkbox"
-                                                   data-id="{{ $blog->id }}" {{-- Store blog ID for easy access --}}
-                                                {{ $blog->status == 1 ? 'checked' : '' }}>
-                                        </td>
+{{--                                        <td>--}}
+{{--                                            <input type="checkbox" value="{{$blog->status}}"--}}
+{{--                                                   class="form-check-input status-checkbox"--}}
+{{--                                                   data-id="{{ $blog->id }}" --}}{{-- Store blog ID for easy access --}}
+{{--                                                {{ $blog->status == 1 ? 'checked' : '' }}>--}}
+{{--                                        </td>--}}
                                         <td>
                                             <a href="{{ route('admin.blogs-edit', ['id' => $blog->id]) }}"
                                                class="btn btn-sm btn-primary me-1">Update</a>

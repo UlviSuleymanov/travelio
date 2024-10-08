@@ -61,9 +61,9 @@
                 <li>
                     <a href="/">Home</a>
                 </li>
-                <li><a href="/az/about">About Us</a></li>
+                <li><a href="/about">About Us</a></li>
                 <li>
-                    <a href="/az/blog">Blogs</a>
+                    <a href="/blog">Blogs</a>
 {{--                    <ul>--}}
 
 {{--                        <li><a href="blogs.html">Blog Grid</a></li>--}}
@@ -72,7 +72,7 @@
 {{--                        <li><a href="blog-details-v3.html">Blog Details V3</a></li>--}}
 {{--                    </ul>--}}
                 </li>
-                <li><a href="/az/contact">Contact</a></li>
+                <li><a href="/contact">Contact</a></li>
             </ul>
         </div>
         <div class="cs_social_links cs_style_1">
