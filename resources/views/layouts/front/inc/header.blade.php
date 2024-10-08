@@ -9,7 +9,7 @@
     <!-- Favicon Icon -->
     <link rel="icon" href="{{asset('assets/img/favicon.png')}}">
     <!-- Site Title -->
-    <title>Traven - Personal & Lifestyle Blog HTML Template</title>
+    <title>Travelio-Travel, Life, and Beyond</title>
     <link rel="stylesheet" href="{{asset('assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/fontawesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/css/slick.min.css')}}">

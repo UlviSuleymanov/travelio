@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class StaticsController extends Controller
+class SliderController extends Controller
 {
     public function sliderManage(){
         $sliders = Slider::all();
@@ -61,6 +61,7 @@ class StaticsController extends Controller
 
 
         $slider->title = $request->input('title');
+        $slider->link = $request->input('link');
 
 
         if ($request->hasFile('image')) {
@@ -85,4 +86,5 @@ class StaticsController extends Controller
         $slider->delete();
         return redirect()->route("admin.slider-manage")->with('success', 'Slider deleted successfully!');
     }
+
 }

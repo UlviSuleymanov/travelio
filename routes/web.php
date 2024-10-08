@@ -18,8 +18,6 @@ use App\Http\Middleware\Language;
 */
 
 
-
-
 Route::prefix("/")->name('site.')->group(function () {
     Route::get("/", [HomeController::class, "index"])->name("home");
     Route::get("/about", [PagesController::class, "about"])->name("about");

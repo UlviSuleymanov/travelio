@@ -84,6 +84,22 @@
                             </ul>
                         </div>
                     </li>
+                    <li class="nav-item">
+                        <a data-bs-toggle="collapse" href="#basezz">
+                            <i class="fas fa-layer-group"></i>
+                            <p>Info Lent</p>
+                            <span class="caret"></span>
+                        </a>
+                        <div class="collapse" id="basezz">
+                            <ul class="nav nav-collapse">
+                                <li>
+                                    <a href="{{route('admin.marquee-manage')}}">
+                                        <span class="sub-item">Idarə et</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
 
                     <li class="nav-section">
                 <span class="sidebar-mini-icon">

@@ -20,7 +20,8 @@
 <!-- articles area -->
 
 <!-- categories area -->
-@include("front.inc.categories")
+<!-- taskda kateqoriyalar yox idi. -->
+{{--@include("front.inc.categories")--}}
 <!-- categories area -->
 
 <!-- informations area -->
