@@ -23,7 +23,8 @@
                             </div>
                         </div>
                             <div class="cs_post_details cs_style_1">
-                        <div class="col-lg-10">
+
+                                <div class="col-lg-10">
                                 <div class="cs_fs_23 cs_mb_30 cs_mb_lg_15">By {{$blog->admin->full_name}}</div>
                                 <h1>{{$blog->title}}</h1>
                                 <div class="row">
@@ -37,6 +38,7 @@
                                 <div class="cs_height_30 cs_height_lg_20"></div>
                                 <div class="cs_height_30 cs_height_lg_30"></div>
                                 <img src="{{"/storage/".$blog->image}}" alt="">
+
 
                             </div>
                             <div class="cs_height_95 cs_height_lg_60"></div>
