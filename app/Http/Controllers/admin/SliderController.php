@@ -79,12 +79,12 @@ class SliderController extends Controller
         $slider->save();
 
 
-        return redirect()->route('admin.slider-manage')->with('success', 'Slider updated successfully!');
+        return redirect()->route('admin.slider-manage')->with('success', 'Slider was updated successfully!');
     }
     public function sliderDelete(Request $request, int $id){
         $slider = Slider::findOrFail($id);
         $slider->delete();
-        return redirect()->route("admin.slider-manage")->with('success', 'Slider deleted successfully!');
+        return redirect()->route("admin.slider-manage")->with('success', 'Slider was deleted successfully!');
     }
 
 }

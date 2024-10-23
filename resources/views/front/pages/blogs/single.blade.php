@@ -88,7 +88,7 @@
                                             </a>
                                             <div class="cs_post_info">
                                                 <p class="cs_post_meta cs_mb_10 cs_fs_16">By
-                                                <p href="#">{{$blog->admin->full_name}}</p></p>
+                                                <p href="#">{{$blog->admin->full_name}}</p>
                                                 <h2 class="cs_post_title mb-0 cs_fs_23"><a
                                                         href="{{route('site.blog-single', ['slug' => $blog->slug]) }}">{{$blog->title}}</a>
                                                 </h2>
